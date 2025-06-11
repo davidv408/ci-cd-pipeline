@@ -34,4 +34,8 @@ jobs:
       run: docker build -t ${{ secrets.GAR_IMAGE_LOCATION }} .
     - name: Push Docker image to Artifact Registry
       run: docker push ${{ secrets.GAR_IMAGE_LOCATION }}
-  
+    - name: Deploy to Cloud Run
+      uses: google-github-actions/deploy-cloudrun@v2
+      with:
+        service: ci-cd-pipeline-app
+        image: ${{ secrets.GAR_IMAGE_LOCATION }}:latest
