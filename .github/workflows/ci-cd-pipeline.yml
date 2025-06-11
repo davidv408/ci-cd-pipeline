@@ -28,4 +28,6 @@ jobs:
       with:
         project_id: ${{ secrets.PROJECT_ID }}
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+    - name: Configure Artifact Registry credential helper
+      run: gcloud auth configure-docker ${{ secrets.ARTIFACT_REGISTRY_REGION }}-docker.pkg.dev --quiet
   
