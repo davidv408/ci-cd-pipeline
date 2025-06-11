@@ -12,7 +12,7 @@ This CI/CD pipeline uses:
 
 
 ## Workflow Overview
-The CI/CD pipeline is triggered via Github Actions when code is commited to the project. The CI/CD pipeline has the following stage build the application (Build), test the application (Test), deploy the application (Deploy)
+The CI/CD pipeline is triggered via Github Actions when code is commited to the project. The CI/CD pipeline has the following stages: build the application (Build), test the application (Test), deploy the application (Deploy)
    - Build
      - Configure Linux machine
      - Install Node.js
