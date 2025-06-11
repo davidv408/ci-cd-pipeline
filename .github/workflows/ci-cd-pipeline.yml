@@ -39,3 +39,4 @@ jobs:
       with:
         service: ci-cd-pipeline-app
         image: ${{ secrets.GAR_IMAGE_LOCATION }}:latest
+        region: us-west1

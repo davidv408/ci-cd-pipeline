@@ -15,3 +15,4 @@ RUN ng build --configuration=production
 #  STAGE 2: Run
 FROM nginx:stable
 COPY --from=build app/dist/ci-cd-pipeline/browser /usr/share/nginx/html
+EXPOSE 8080
