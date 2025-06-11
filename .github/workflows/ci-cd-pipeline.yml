@@ -15,5 +15,18 @@ jobs:
         node-version: 22.16.0
     - name: Install project dependencies
       run: npm ci
+  # Declare 'test' job
+  test:
+    needs: build
+    steps:
     - name: Run unit test
       run: npm run test -- --watch=false --browsers=ChromeHeadless
+  deploy:
+    needs: test
+    steps:
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/auth@v2
+      with:
+        project_id: {{ secrets.PROJECT_ID }}
+        workload_identity_provider: {{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+  
