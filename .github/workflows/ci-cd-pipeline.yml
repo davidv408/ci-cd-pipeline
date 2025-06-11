@@ -29,5 +29,9 @@ jobs:
         project_id: ${{ secrets.PROJECT_ID }}
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
     - name: Configure Artifact Registry credential helper
-      run: gcloud auth configure-docker ${{ secrets.ARTIFACT_REGISTRY_REGION }}-docker.pkg.dev --quiet
+      run: gcloud auth configure-docker ${{ secrets.GAR_REGISTRY_REGION }}-docker.pkg.dev --quiet
+    - name: Build Docker image
+      run: docker build -t ${{ secrets.GAR_IMAGE_LOCATION }} .
+    - name: Push Docker image to Artifact Registry
+      run: docker push ${{ secrets.GAR_IMAGE_LOCATION }}
   
