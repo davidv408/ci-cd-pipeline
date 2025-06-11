@@ -5,6 +5,10 @@ jobs:
   build-test-deploy:
      # Use Linux-based Github-hosted runner
     runs-on:  ubuntu-latest
+    # Permissions for Google Cloud Auth
+    permissions:
+      contents: read
+      id-token: write
     steps:
     # Build stage
     - name: Checkout code
